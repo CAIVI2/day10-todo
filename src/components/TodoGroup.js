@@ -6,6 +6,7 @@ import {TodoContext} from "../contexts/TodoContext";
 export function TodoGroup() {
     const {state, dispatch} = useContext(TodoContext)
     return <div>
+        <div className={"todo-title"}>Todo List</div>
         {
             state.map((item, index) => {
                 return <TodoItem todo={item} key={index} index={index}/>

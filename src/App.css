@@ -9,3 +9,7 @@
 .todo-item  .todo-done {
     text-decoration: line-through;
 }
+
+.todo-title {
+    font-weight: bold;
+}
