@@ -5,6 +5,14 @@ import {TodoContext} from "../contexts/TodoContext";
 
 export function TodoGroup() {
     const {state, dispatch} = useContext(TodoContext)
+
+    function deleteToto(item) {
+        dispatch({
+            type: "DELETE_TODO",
+            payload: {id: item.id}
+        })
+    }
+
     return <div>
         <div className={"todo-title"}>Todo List</div>
         {state.length === 0 ? (
@@ -13,7 +21,7 @@ export function TodoGroup() {
             state.map((item, index) => (
                 <div className="todo-row" key={index}>
                     <TodoItem todo={item} index={index}/>
-                    <button type="button">X</button>
+                    <button type="button" onClick={() => deleteToto(item)}>X</button>
                 </div>
             ))
         )}
