@@ -15,21 +15,28 @@
 .todo-title {
     font-weight: bold;
     text-align: center;
+    margin-bottom: 5px;
 }
 
 .todo-row {
     display: flex;
     align-items: center;
     gap: 8px;
-    margin-top: 10px;
+    margin-top: 5px;
     justify-content: center;
 }
 
 .todo-row .todo-delete-button {
     cursor: pointer;
+    width: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 11px;
 }
 
 .todo-empty {
+    margin-top: 5px;
     font-size: 11px;
     text-align: center;
 }
@@ -41,9 +48,14 @@
     justify-content: center;
 }
 
+.todo-add input {
+    width: 200px;
+}
+
 .todo-add .todo-add-button {
     cursor: pointer;
     border: none;
     color: white;
-    background-color: dodgerblue;
+    background-color: #1e8bfc;
+    width:40px;
 }
