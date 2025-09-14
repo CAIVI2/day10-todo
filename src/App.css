@@ -24,3 +24,16 @@
 .todo-empty {
     font-size: 11px;
 }
+
+.todo-add{
+    margin-top: 10px;
+    display: flex;
+    gap: 8px;
+}
+
+.todo-add-button {
+    cursor: pointer;
+    border: none;
+    color: white;
+    background-color: dodgerblue;
+}
