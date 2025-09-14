@@ -21,7 +21,7 @@ export function TodoGroup() {
             state.map((item, index) => (
                 <div className="todo-row" key={index}>
                     <TodoItem todo={item} index={index}/>
-                    <button type="button" onClick={() => deleteToto(item)}>X</button>
+                    <button type="button" className={"todo-delete-button"} onClick={() => deleteToto(item)}>X</button>
                 </div>
             ))
         )}
