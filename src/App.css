@@ -1,8 +1,8 @@
 .todo-item {
     width: 320px;
-    padding: 8px;
+    padding: 1px;
     border: 1px solid #604444;
-    margin-top: 10px;
+    margin: 0;
     text-align: center;
 }
 
@@ -12,4 +12,11 @@
 
 .todo-title {
     font-weight: bold;
+}
+
+.todo-row {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 10px
 }

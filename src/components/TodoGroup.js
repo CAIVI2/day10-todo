@@ -9,7 +9,10 @@ export function TodoGroup() {
         <div className={"todo-title"}>Todo List</div>
         {
             state.map((item, index) => {
-                return <TodoItem todo={item} key={index} index={index}/>
+                return <div className="todo-row" key={index}>
+                    <TodoItem todo={item} key={index} index={index}/>
+                    <button type="button">X</button>
+                </div>
             })
         }
     </div>;
