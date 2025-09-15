@@ -1,4 +1,5 @@
 import {useContext} from "react";
+import {Button} from 'antd';
 
 import {TodoContext} from "../contexts/TodoContext";
 import {useNavigate} from "react-router";
@@ -16,7 +17,7 @@ export function TodoItem(props) {
             })
     }
 
-    function deleteToto() {
+    function handleDelete() {
         deleteTodo(props)
             .then(() => {
                 dispatch({type: "DELETE_TODO", payload: {id: props.todo.id}})
@@ -33,7 +34,7 @@ export function TodoItem(props) {
             {props.todo.text}
         </span>
         </div>
-        <button type="button" className={"todo-delete-button"} onClick={deleteToto}>X</button>
-        <button type="button" className={"todo-detail-button"} onClick={navigateToDetail}>Detail</button>
+        <Button type="primary" danger size="small" className={"todo-delete-button"} onClick={handleDelete}>X</Button>
+        <Button size="small" info className={"todo-detail-button"} onClick={navigateToDetail}>Detail</Button>
     </div>;
 }
