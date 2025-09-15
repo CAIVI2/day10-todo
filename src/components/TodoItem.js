@@ -2,21 +2,22 @@ import {useContext} from "react";
 
 import {TodoContext} from "../contexts/TodoContext";
 import {useNavigate} from "react-router";
-import {api} from "../api/mockApi";
+import {useTodoService} from "../useTodoService";
 
 export function TodoItem(props) {
     const {dispatch} = useContext(TodoContext)
     const navigate = useNavigate();
+    const {putTodo, deleteTodo} = useTodoService();
 
     function makeAsDone() {
-        api.put(`/todos/${props.todo.id}`, {id: props.todo.id, done: !props.todo.done})
-        .then(() => {
-            dispatch({type: "TOGGLE_TODO", payload: {id: props.todo.id}})
-        })
+        putTodo(props)
+            .then((todo) => {
+                dispatch({type: "UPDATE_TODO", payload: todo})
+            })
     }
 
-    function deleteToto(item) {
-        api.delete(`/todos/${props.todo.id}`)
+    function deleteToto() {
+        deleteTodo(props)
             .then(() => {
                 dispatch({type: "DELETE_TODO", payload: {id: props.todo.id}})
             })
