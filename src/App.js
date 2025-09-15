@@ -2,7 +2,7 @@ import {useReducer} from "react";
 import "./App.css"
 import {todoReducer} from "./reducers/TodoReducer";
 import {TodoContext as TodoContext1} from "./contexts/TodoContext";
-import {MultipleTodd} from "./components/MultipleTodd";
+import {MultipleTodo} from "./components/MultipleTodo";
 
 export const initState = [
     {id: 1, text: "This is the first thing I need to do", done: false},
@@ -14,7 +14,7 @@ function App() {
     return (
         <div>
             <TodoContext1 value={{state, dispatch}}>
-                <MultipleTodd/>
+                <MultipleTodo/>
             </TodoContext1>
         </div>
     );

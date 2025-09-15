@@ -1,7 +1,7 @@
 import {TodoGroup} from "./TodoGroup";
 import {TodoItemGenerator} from "./TodoItemGenerator";
 
-export function MultipleTodd() {
+export function MultipleTodo() {
     return <div>
         <TodoGroup/>
         <TodoItemGenerator/>
