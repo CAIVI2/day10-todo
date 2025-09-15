@@ -1,7 +1,7 @@
-import {useReducer} from "react";
+import {useEffect, useReducer} from "react";
 import "./App.css"
 import {todoReducer} from "./reducers/TodoReducer";
-import {initState, TodoContext} from "./contexts/TodoContext";
+import {TodoContext} from "./contexts/TodoContext";
 import {RouterProvider} from "react-router";
 import {routes} from "./routes/Routes";
 import axios from "axios";
@@ -13,7 +13,14 @@ const api = axios.create({
 })
 
 function App() {
-    const [state, dispatch] = useReducer(todoReducer, initState);
+    const [state, dispatch] = useReducer(todoReducer, []);
+
+    useEffect(() => {
+        api.get("/todos")
+            .then(response => response.data)
+            .then(todos => dispatch({type: "LOAD_TODOS", payload: todos}))
+    }, [])
+
     return (
         <div>
             <TodoContext.Provider value={{state, dispatch}}>
