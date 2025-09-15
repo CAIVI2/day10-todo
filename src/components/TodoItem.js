@@ -14,7 +14,7 @@ export function TodoItem(props) {
 
     return <div className={"todo-item"}>
         <span className={props.todo.done ? "todo-done" : ""} onClick={makeAsDone}>
-            {props.todo.done ? "I already done this item" : props.todo.text}
+            {props.todo.text}
         </span>
     </div>;
 }
