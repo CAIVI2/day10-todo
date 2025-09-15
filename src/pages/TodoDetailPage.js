@@ -13,6 +13,6 @@ export function TodoDetailPage() {
     }
 
     return <div>
-        <TodoItem todo={todo[0]} index={id}></TodoItem>
+        {todo[0].text}
     </div>
 }
