@@ -5,7 +5,7 @@ import {useNavigate} from "react-router";
 import {api} from "../api/mockApi";
 
 export function TodoItem(props) {
-    const {state, dispatch} = useContext(TodoContext)
+    const {dispatch} = useContext(TodoContext)
     const navigate = useNavigate();
 
     function makeAsDone() {
