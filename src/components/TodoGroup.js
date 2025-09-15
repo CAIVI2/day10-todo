@@ -1,19 +1,23 @@
 import {useContext} from "react";
 import {TodoItem} from "./TodoItem";
-
 import {TodoContext} from "../contexts/TodoContext";
+import { List, Empty, Typography } from 'antd';
+
+const { Title } = Typography;
 
 export function TodoGroup() {
     const {state} = useContext(TodoContext)
 
     return <div>
-        <div className={"title"}>Todo List</div>
-        {state.length === 0 ? (
-            <div className="todo-empty">Add the things you need to do today...</div>
-        ) : (
-            state.map((item, index) => (
-                <TodoItem todo={item} index={index}/>
-            ))
-        )}
+        <Title level={4} className={"title"}>Todo List</Title>
+        <List
+            dataSource={state}
+            locale={{ emptyText: <Empty description={"Add the things you need to do today..."} /> }}
+            renderItem={(item, index) => (
+                <List.Item key={item.id}>
+                    <TodoItem todo={item} index={index} />
+                </List.Item>
+            )}
+        />
     </div>;
 }
