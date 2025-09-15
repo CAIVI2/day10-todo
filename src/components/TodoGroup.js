@@ -7,7 +7,7 @@ export function TodoGroup() {
     const {state} = useContext(TodoContext)
 
     return <div>
-        <div className={"todo-title"}>Todo List</div>
+        <div className={"title"}>Todo List</div>
         {state.length === 0 ? (
             <div className="todo-empty">Add the things you need to do today...</div>
         ) : (

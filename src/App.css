@@ -22,7 +22,7 @@ body {
     text-decoration: line-through;
 }
 
-.todo-title {
+.title {
     font-weight: bold;
     text-align: center;
     margin-bottom: 5px;
