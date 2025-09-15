@@ -5,6 +5,12 @@ import {HomePage} from "../pages/HomePage";
 import {TodoDetailPage} from "../pages/TodoDetailPage";
 import {DoneListPage} from "../pages/DoneListPage";
 
+function About() {
+    return <div>
+        <h1>About US</h1>
+    </div>;
+}
+
 export const routes = createBrowserRouter([
     {
         path: "/",
@@ -22,6 +28,10 @@ export const routes = createBrowserRouter([
             {
                 path: "/doneTodos",
                 element: <DoneListPage/>
+            },
+            {
+                path: "/aboutUs",
+                element: <About/>
             }
         ]
     }
