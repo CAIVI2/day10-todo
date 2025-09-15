@@ -9,9 +9,9 @@ export function TodoItem(props) {
     const navigate = useNavigate();
 
     function makeAsDone() {
-        dispatch({
-            type: "TOGGLE_TODO",
-            payload: {id: props.todo.id}
+        api.put(`/todos/${props.todo.id}`, {id: props.todo.id, done: !props.todo.done})
+        .then(() => {
+            dispatch({type: "TOGGLE_TODO", payload: {id: props.todo.id}})
         })
     }
 
