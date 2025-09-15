@@ -1,7 +1,7 @@
 import {useState, useContext} from "react";
 import {TodoContext} from "../contexts/TodoContext";
 
-export function TodoItemGenerator() {
+export function TodoGenerator() {
     const [input, setInput] = useState("");
     const {dispatch} = useContext(TodoContext);
 
