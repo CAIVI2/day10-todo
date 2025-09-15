@@ -8,10 +8,10 @@ import {useTodoService} from "../useTodoService";
 export function TodoItem(props) {
     const {dispatch} = useContext(TodoContext)
     const navigate = useNavigate();
-    const {putTodo, deleteTodo} = useTodoService();
+    const {updateTodo, deleteTodo} = useTodoService();
 
     function makeAsDone() {
-        putTodo(props)
+        updateTodo(props)
             .then((todo) => {
                 dispatch({type: "UPDATE_TODO", payload: todo})
             })
