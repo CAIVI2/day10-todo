@@ -13,7 +13,6 @@ export function TodoDetailPage() {
     }
 
     return <div>
-        {JSON.stringify(todo)}
         <TodoItem todo={todo[0]} index={id}></TodoItem>
     </div>
 }
