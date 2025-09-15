@@ -25,10 +25,18 @@ function DefaultLayout() {
     </div>
 }
 
+function ErrorPage() {
+    const error = useRouteError();
+    return <div>
+        {error.status === 404 ? <div className={"not-found"}><h1>404 not found</h1><span>Try</span></div> :
+            <div>{JSON.stringify(error)}</div>}
+    </div>
+}
+
 const routes = createBrowserRouter([
     {
         path: "/",
-        element: <DefaultLayout/>,
+        element: <ErrorPage/>,
         children: [
             {
                 path: "/",
@@ -42,9 +50,9 @@ function App() {
     const [state, dispatch] = useReducer(todoReducer, initState);
     return (
         <div>
-            <TodoContext1 value={{state, dispatch}}>
+            <TodoContext1.Provider value={{state, dispatch}}>
                 <RouterProvider router={routes}></RouterProvider>
-            </TodoContext1>
+            </TodoContext1.Provider>
         </div>
     );
 }
