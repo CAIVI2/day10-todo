@@ -3,17 +3,38 @@ import "./App.css"
 import {todoReducer} from "./reducers/TodoReducer";
 import {TodoContext as TodoContext1} from "./contexts/TodoContext";
 import {TodoList} from "./components/TodoList";
-import {createBrowserRouter, RouterProvider} from "react-router";
+import {createBrowserRouter, NavLink, Outlet, RouterProvider, useRouteError} from "react-router";
 
 export const initState = [
     {id: 1, text: "This is the first thing I need to do", done: false},
     {id: 2, text: "This is the second thing I need to do", done: false},
 ];
 
+function DefaultLayout() {
+    return <div>
+        <header>
+            <nav>
+                <ul>
+                    <li><NavLink to={"/"}>Home</NavLink></li>
+                </ul>
+            </nav>
+        </header>
+        <main>
+            <Outlet/>
+        </main>
+    </div>
+}
+
 const routes = createBrowserRouter([
     {
         path: "/",
-        element: <TodoList/>
+        element: <DefaultLayout/>,
+        children: [
+            {
+                path: "/",
+                element: <TodoList/>
+            }
+        ]
     }
 ]);
 
