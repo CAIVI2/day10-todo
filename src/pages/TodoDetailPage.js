@@ -8,10 +8,23 @@ export function TodoDetailPage() {
     const todo = state.filter((todo) => todo.id === id);
 
     if (todo.length === 0) {
-        return <div>Not Found Todo</div>
+        return <div className="todo-detail-center">
+            <div className="todo-detail-notfound">Not Found Todo</div>
+        </div>;
     }
 
-    return <div>
-        {todo[0].text}
-    </div>
+    const {id: todoId, text, done} = todo[0];
+
+    return (
+        <div className="todo-detail-center">
+            <div className="todo-detail-card">
+                <div className="todo-detail-title">Todo Detail</div>
+                <div style={{marginBottom: 8}}><span className="todo-detail-label">ID:</span> {todoId}</div>
+                <div style={{marginBottom: 8}}><span className="todo-detail-label">Text:</span> {text}</div>
+                <div>
+                  <span className="todo-detail-label">Status:</span> {done ? <span className="todo-detail-status-done">Done</span> : <span className="todo-detail-status-notdone">Not Done</span>}
+                </div>
+            </div>
+        </div>
+    );
 }
