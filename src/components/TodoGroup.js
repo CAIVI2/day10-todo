@@ -10,7 +10,7 @@ export function TodoGroup() {
 
     return <div>
         <Title level={4} className={"title"}>Todo List</Title>
-        <List
+        <List className={"todo-row"}
             dataSource={state}
             locale={{ emptyText: <Empty description={"Add the things you need to do today..."} /> }}
             renderItem={(item, index) => (
