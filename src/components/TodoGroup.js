@@ -8,16 +8,18 @@ const { Title } = Typography;
 export function TodoGroup() {
     const {state} = useContext(TodoContext)
 
-    return <div>
-        <Title level={4} className={"title"}>Todo List</Title>
-        <List className={"todo-row"}
-            dataSource={state}
-            locale={{ emptyText: <Empty description={"Add the things you need to do today..."} /> }}
-            renderItem={(item, index) => (
-                <List.Item key={item.id}>
-                    <TodoItem todo={item} index={index} />
-                </List.Item>
-            )}
-        />
+    return <div className="todo-group-container">
+        <div className="todo-list-card">
+            <Title level={4} className="todo-list-title">Todo List</Title>
+            <List
+                dataSource={state}
+                locale={{ emptyText: <Empty className="todo-list-empty" description={"Add the things you need to do today..."} /> }}
+                renderItem={(item, index) => (
+                    <List.Item key={item.id} className="todo-list-item">
+                        <TodoItem todo={item} index={index} />
+                    </List.Item>
+                )}
+            />
+        </div>
     </div>;
 }
