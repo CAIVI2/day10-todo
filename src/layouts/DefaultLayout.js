@@ -6,8 +6,8 @@ const {Header, Content, Footer} = Layout;
 
 export function DefaultLayout() {
     return (
-        <Layout style={{minHeight: '100vh'}}>
-            <Header style={{padding: 0}}>
+        <Layout style={{minHeight: '100vh', minWidth: '100vw'}}>
+            <Header style={{padding: 0, width: '100%', margin: 0}}>
                 <div>
                     <div className="logo"/>
                     <Menu
